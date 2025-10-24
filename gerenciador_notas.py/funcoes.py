@@ -1,16 +1,6 @@
-# lista = []
-# def calcular_media(a=0, b=0, c=0,d=0):
-#     lista.append(float(input("Digite suas notas: ")))
-#     lista.append(float(input("Digite suas notas: ")))
-#     lista.append(float(input("Digite suas notas: ")))
-#     lista.append(float(input("Digite suas notas: ")))
-#     print(lista)    
-
 lista1 = []
-nome_aluno = input("Digite seu nome: ")
-for i in range(3):
-    lista1.append(float(input(f"Digite suas notas {nome_aluno}: ")))
-print(lista1) 
+def cadastro(nome):
+    return
 
 def calcular_media():
     return sum(lista1) / 3
