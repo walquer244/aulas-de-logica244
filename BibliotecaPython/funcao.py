@@ -1,17 +1,16 @@
-
 def adicionar_livros(listaLivros):
-    titulo = input("Digite o titulo do seu livro: ")
+    nome = input("Digite o titulo do seu livro: ")
     autor = input("Digite o nome do autor do seu livro: ")
     status = "Livro Disponivel"
-    dict = {
-        "titulo": titulo,
+    informacoes = {
+        'titulo': nome,
         "autor" : autor,
         "status" : status
     }
-    listaLivros.append(dict)
-    return
+    listaLivros.append(informacoes)
+    return listaLivros
 
-def emprestar_livros(listaLivros):
+def emprestar_livro(listaLivros):
     titulo = input("Digite o título do livro a ser emprestado: ")
     for livro in listaLivros:
         if livro["titulo"] == titulo:
@@ -20,7 +19,7 @@ def emprestar_livros(listaLivros):
             return
     print("Livro não encontrado.")
 
-def devolver_livros(listaLivros):
+def devolver_livro(listaLivros):
     titulo = input("Digite o título do livro a ser devolvido: ")
     dia = input("Diga o dia em que o livro foi devolvido: ")
     for livro in listaLivros:
@@ -31,8 +30,9 @@ def devolver_livros(listaLivros):
     print("Livro não encontrado.")
 
 def exibir_livros(listaLivros):
-    if not listaLivros:
-        print("Nenhum livro cadastrado.")
-    else:
-        for livro in listaLivros:
-            print(f'Título: {livro["titulo"]}, Autor: {livro["autor"]}, Status: {livro["status"]}')
+    # if not listaLivros:
+    #     print("Nenhum livro cadastrado.")
+    # else:
+    #     for livro in listaLivros:
+    #         print(f"{livro['titulo']}")
+    print(listaLivros)
