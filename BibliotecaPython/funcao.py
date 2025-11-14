@@ -8,6 +8,7 @@ def adicionar_livros(listaLivros):
         "status" : status
     }
     listaLivros.append(informacoes)
+    print("✅ Livro adicionado com SUCESSO!!! ✅")
     return listaLivros
 
 def emprestar_livro(listaLivros):
@@ -15,19 +16,19 @@ def emprestar_livro(listaLivros):
     for livro in listaLivros:
         if livro["titulo"] == titulo:
             livro["status"] = "Livro emprestado"
-            print(f'O livro "{titulo}" foi emprestado com sucesso.')
+            print(f'✅ O livro "{titulo}" foi emprestado com sucesso.')
             return
-    print("Livro não encontrado.")
+    print("✖️Livro não encontrado.")
 
 def devolver_livro(listaLivros):
-    titulo = input("Digite o título do livro a ser devolvido: ")
-    dia = input("Diga o dia em que o livro foi devolvido: ")
+    titulo = input("📗 Digite o título do livro a ser devolvido: ")
+    dia = input("📅 Diga o dia em que o livro foi devolvido: ")
     for livro in listaLivros:
         if livro["titulo"] == titulo:
             livro["status"] = f"Livro devolvido em {dia}"
-            print(f'O livro "{titulo}" foi devolvido com sucesso.')
+            print(f'✅ O livro "{titulo}" foi devolvido com sucesso.')
             return
-    print("Livro não encontrado.")
+    print("✖️ Livro não encontrado.")
 
 def exibir_livros(listaLivros):
     # if not listaLivros:

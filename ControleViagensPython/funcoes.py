@@ -1,18 +1,54 @@
-import tabulate
+from tabulate import tabulate
 
-def registrar_viagens(listaViagens):
-    Nome_do_Motorista = input("Digite o nome do motorista: ")
-    Destino = input("Digite o seu destino: ")
-    Distancia = float(input("Digite a quilometragem do percurso: "))
-    Valor_do_Combustivel = 6.20
-    gasto_por_KM = 6.20 * Valor_do_Combustivel
-    consumo = Valor_do_Combustivel / Distancia
-    Viagem = {
-        "Nome do Motorista" : Nome_do_Motorista,
-        "Destino ": Destino,
-        "Distancia": Distancia,
-        "consumo por Km percorrido" : consumo
+def registrar_viagem(listaViagens):
+    motorista = input("Digite o nome do motorista: ")
+    destino = input("Digite o destino da viagem: ")
+    distancia = float(input("Digite a distância percorrida (em km): "))
+    consumo = 6.20 * distancia
+    gasto = float(input("Digite o valor gasto com combustível (em R$): "))
+
+    
+
+    viagem = {
+        "motorista": motorista,
+        "destino": destino,
+        "distancia": distancia,
+        "gasto": gasto,
+        "consumo": consumo
     }
 
-    listaViagens.append(Viagem)
-    return("✅ Viagem registrada com sucesso!!!")
+    listaViagens.append(viagem)
+    print("✅ Viagem registrada com sucesso!")
+
+def exibir_viagens(listaViagens):
+    if not listaViagens:
+        print("⚠️ Nenhuma viagem registrada.")
+        return
+    print(tabulate(listaViagens, headers="keys", tablefmt="grid"))
+
+def buscar_motorista(listaViagens):
+    nome = input("Digite o nome do motorista para buscar: ")
+    viagens_motorista = [v for v in listaViagens if v["motorista"].lower() == nome.lower()]
+    if viagens_motorista:
+        print(tabulate(viagens_motorista, headers="keys", tablefmt="grid"))
+    else:
+        print("🚫 Nenhuma viagem encontrada para esse motorista.")
+
+def viagem_mais_cara(listaViagens):
+    if not listaViagens:
+        print("⚠️ Nenhuma viagem registrada.")
+        return
+    mais_cara = max(listaViagens, key=lambda v: v["gasto"])
+    print("💰 Viagem mais cara:")
+    print(tabulate([mais_cara], headers="keys", tablefmt="grid"))
+
+def media_consumo(listaViagens):
+    if not listaViagens:
+        print("⚠️ Nenhuma viagem registrada.")
+        return
+    media = sum(v["consumo"] for v in listaViagens) / len(listaViagens)
+    print(f"📊 Média geral de consumo: {round(media, 2)} R$/km")
+
+
+
+

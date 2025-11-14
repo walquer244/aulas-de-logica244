@@ -23,7 +23,7 @@ while True:
         devolver_livro(listaLivros)
 
     elif op == "0":
-        print("Obrigado por usar nossa biblioteca!!!")
+        print("Obrigado por usar nossa biblioteca!!!. Volte sempre!!!")
         break 
     else:
         print("Opção invalida!!")
